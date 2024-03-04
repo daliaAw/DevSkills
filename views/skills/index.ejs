@@ -1,0 +1,34 @@
+<%- include('../partials/header') %>
+  
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% skills.forEach(function(s) { %>
+
+    <tr>
+      <td> <form action="/skills/<%= s.id %>?_method=DELETE" method="POST" class="delete-form">
+        <button type="submit">X</button>
+      </form></td>
+      <td> <a href="/skills/<%= s.id %>">
+        <%= s.skill %>
+      </a></td>
+      <td><%= s.done ? 'done' : 'not done' %></td>
+    </tr>
+    <tr>
+
+    <% }); %>
+  </tbody>
+</table>
+<a class="link" href="/skills/new">Add Skill</a>
+
+<%- include('../partials/footer') %>
+
+
+
+
